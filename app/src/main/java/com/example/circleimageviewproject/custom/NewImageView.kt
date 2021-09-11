@@ -98,20 +98,45 @@ class NewImageView : androidx.appcompat.widget.AppCompatImageView {
     private fun drawCircleImage(canvas: Canvas?) {
         canvas?.let {
             Log.d(TAG, "drawCircleImage: here")
+//            it.drawPath(pathCircle, linePaint)
             it.clipPath(pathCircle)
-            it.drawPath(pathCircle, linePaint)
+//            it.drawPath(pathCircle.also { path ->
+//                path.reset()
+//                path.addCircle(
+//                    viewWidth / 2,
+//                    viewHeight / 2,
+//                    radius - borderWidth,
+//                    Path.Direction.CW
+//                )
+//            }, linePaint)
         }
     }
 
     private fun drawRoundCircle(canvas: Canvas?) {
         canvas?.let {
+//            it.drawPath(pathOfRadius, linePaint)
             it.clipPath(pathOfRadius)
-            it.drawPath(pathOfRadius, linePaint)
+//            it.drawPath(pathOfRadius.also { path ->
+//                path.reset()
+//                val array = FloatArray(8)
+//                repeat(8) { num ->
+//                    array[num] = borderCorner
+//                }
+//                path.addRoundRect(
+//                    RectF(
+//                        borderWidth,
+//                        borderWidth,
+//                        radius * 2 - borderWidth,
+//                        radius * 2 - borderWidth
+//                    ),
+//                    array,
+//                    Path.Direction.CW
+//                )
+//            }, linePaint)
         }
     }
 
     override fun onDraw(canvas: Canvas?) {
-        Log.d(TAG, "onDraw: image is not null and canvas = null? " + (canvas == null))
         if (border == Type.CIRCLE)
             drawCircleImage(canvas)
         else
